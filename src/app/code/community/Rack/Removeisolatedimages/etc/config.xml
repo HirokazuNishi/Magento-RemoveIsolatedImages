@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@principle-works.jp so we can send you a copy immediately.
+ *
+ * @category   System
+ * @package    Rack_Removeisolatedimages
+ * @copyright  Copyright (c) 2015 Veriteworks Inc. (http://principle-works.jp/)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Rack_Removeisolatedimages>
+            <version>1.0.0</version>
+        </Rack_Removeisolatedimages>
+    </modules>
+    <global>
+        <helpers>
+            <isolatedimages>
+                <class>Rack_Removeisolatedimages_Helper</class>
+            </isolatedimages>
+        </helpers>
+        <models>
+            <isolatedimages>
+                <class>Rack_Removeisolatedimages_Model</class>
+            </isolatedimages>
+        </models>
+        <template>
+            <email>
+                <isolatedimages_cron_error_email_template translate="label" module="isolatedimages">
+                    <label>Remove isolated images cron error</label>
+                    <file>isolatedimages/alert_cron_error.html</file>
+                    <type>html</type>
+                </isolatedimages_cron_error_email_template>
+            </email>
+        </template>
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Rack_Removeisolatedimages>
+                    <files>
+                        <default>Rack_Removeisolatedimages.csv</default>
+                    </files>
+                </Rack_Removeisolatedimages>
+            </modules>
+        </translate>
+    </adminhtml>
+    <crontab>
+        <jobs>
+            <remove_isolated_image>
+                <run>
+                    <model>isolatedimages/cron::process</model>
+                </run>
+            </remove_isolated_image>
+        </jobs>
+    </crontab>
+    <default>
+        <catalog>
+            <isolatedimages>
+                <error_email/>
+                <error_email_template>isolatedimages_cron_error_email_template</error_email_template>
+                <error_email_identity>general</error_email_identity>
+            </isolatedimages>
+        </catalog>
+    </default>
+</config>
