@@ -1,0 +1,3 @@
+src/app/etc/modules/Rack_Removeisolatedimages.xml app/etc/modules/Rack_Removeisolatedimages.xml
+src/app/code/community/Rack/Removeisolatedimages app/code/community/Rack/Removeisolatedimages
+src/app/locale/ja_JP/Rack_Removeisolatedimages.csv app/locale/ja_JP/Rack_Removeisolatedimages.csv
